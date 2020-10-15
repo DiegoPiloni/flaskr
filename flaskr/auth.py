@@ -55,19 +55,17 @@ def register():
             password_hash = generate_password_hash(password)
 
             # Vulnerable to SQL injection
-            """
             query = f"INSERT INTO user (username, password) VALUES ('{username}', '{password_hash}')"
             print(query)
-            db.execute(
-               query
-            )
-            """
+            db.execute(query)
 
             # Not Vulnerable to SQL injection
+            """
             db.execute(
                 'INSERT INTO user (username, password) VALUES (?, ?)',
                 (username, password_hash)
             )
+            """
 
             db.commit()
             return redirect(url_for('auth.login'))
