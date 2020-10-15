@@ -44,6 +44,8 @@ Run
 
 Open http://127.0.0.1:5000 in a browser.
 
+Register some users and check in DBeaver. `sqlite` database is located at `instance/flaskr.sqlite`
+
 
 SQL injection
 -------------
